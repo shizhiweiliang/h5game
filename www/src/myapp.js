@@ -6,7 +6,7 @@ function tick(event) {
 }
 
 function onMousedown(evt) {
-    if(evt.target.num==0||evt.target.num==2){
+    if(evt.target.num===0||evt.target.num==2){
         stage.removeChild(evt.target);
         cond+=1;
     }
