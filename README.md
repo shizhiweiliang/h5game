@@ -1,4 +1,5 @@
-# Blank EaselJS Project
+# Surprise - A letter from X
+
 
 See [LICENSE.md]() for license terms and conditions.
 
