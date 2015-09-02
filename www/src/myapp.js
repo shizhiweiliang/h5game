@@ -1,4 +1,4 @@
-var canvas,fp, obj9, obj10, obj11, code1, code2, code3, stage, bg,cond=0,obj=[],coord =[{y:1400,x:1000},{y:104,x:260},{y:960,x:980},{y:1040,x:500},{y:1270,x:960},{y:120,x:1000},{y:820,x:1000},{y:180,x:900},{y:1280,x:840}];
+var canvas,fp, obj9, obj10, obj11, code1, code2, code3, stage, bg,cond=0,obj=[],coord =[{y:1250,x:980},{y:104,x:260},{y:840,x:980},{y:1030,x:500},{y:990,x:880},{y:120,x:1000},{y:780,x:980},{y:160,x:960},{y:1160,x:1000}];
 var queue = new createjs.LoadQueue(true);
 
 function tick(event) {
@@ -15,8 +15,8 @@ function onMousedown(evt) {
         case 2:
             if(cond==2){
                 if(bg.image==queue.getResult("bg1")){
-                   evt.target.scaleX=1.3;
-                   evt.target.scaleY=1.3;
+                   evt.target.scaleX=3*bg.scaleX;
+                   evt.target.scaleY=3*bg.scaleY;
                    evt.target.regX=evt.target.image.width/2;
                    evt.target.regY=evt.target.image.height/2;
                    evt.target.x=window.innerWidth/2;
@@ -28,19 +28,19 @@ function onMousedown(evt) {
                     stage.removeChild(evt.target);
                     setTimeout(handleComplete2,500);
                 }
-                else
+                else{
                     evt.target.image=queue.getResult("cl1");
                     evt.target.regX=evt.target.image.width/2;
                     evt.target.regY=evt.target.image.height/2;
                     evt.target.x=window.innerWidth/2;
                     evt.target.y=window.innerHeight/2;
-                    
+                }
             }
                 break;
         case 5:
             if(bg.image==queue.getResult("bg2")){
-                evt.target.scaleX=1;
-                evt.target.scaleY=1;
+                evt.target.scaleX=1.6*bg.scaleX;
+                evt.target.scaleY=1.6*bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
@@ -61,8 +61,8 @@ function onMousedown(evt) {
             break;
         case 3:
             if(bg.image==queue.getResult("bg2")){
-                evt.target.scaleX=1;
-                evt.target.scaleY=1;
+                evt.target.scaleX=1.6*bg.scaleX;
+                evt.target.scaleY=1.6*bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
@@ -73,12 +73,13 @@ function onMousedown(evt) {
                 stage.removeChild(evt.target);
                 bg.image=queue.getResult("bg2");
             }
-            else
+            else{
                  evt.target.image=queue.getResult("cl3");
                  evt.target.regX=evt.target.image.width/2;
                  evt.target.regY=evt.target.image.height/2;
                  evt.target.x=window.innerWidth/2;
                  evt.target.y=window.innerHeight/2;
+            }
             break;
         case 4:
             if(bg.image==queue.getResult("bg2")){
@@ -96,8 +97,8 @@ function onMousedown(evt) {
             }
             else{
                 evt.target.image=queue.getResult("cl4");
-                evt.target.scaleX=1;
-                evt.target.scaleY=1;
+                evt.target.scaleX=1.6*bg.scaleX;
+                evt.target.scaleY=1.6*bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
@@ -112,8 +113,8 @@ function onMousedown(evt) {
         case 8:
             if(cond==4){
                 if(bg.image==queue.getResult("bg3")){
-                evt.target.scaleX=1.05;
-                evt.target.scaleY=1.05;
+                evt.target.scaleX=1.6*bg.scaleX;
+                evt.target.scaleY=1.6*bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
@@ -125,20 +126,21 @@ function onMousedown(evt) {
                 stage.removeChild(evt.target);
                 setTimeout(handleComplete4,500);
             }
-                else
+                else{
                 evt.target.image=queue.getResult("cl5");
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
                 evt.target.y=window.innerHeight/2;
+                }
             }
-                break;
+            break;
         case 9:
             if(bg.image==queue.getResult("bg1")){
                 evt.target.image=queue.getResult("bk1");
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
-                evt.target.x=window.innerWidth/2;
+                evt.target.x=0;
                 evt.target.y=window.innerHeight/2;
                 bg.image=queue.getResult("bg1b");
             }
@@ -147,12 +149,15 @@ function onMousedown(evt) {
                 stage.removeChild(evt.target);
                 setTimeout(handleComplete5,500);
             }
-            else
+            else{
                 evt.target.image=queue.getResult("bk2");
+                evt.target.scaleX=2.5*bg.scaleX;
+                evt.target.scaleY=2.5*bg.scaleY; 
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
-                evt.target.x=window.innerWidth/2;
-                evt.target.y=window.innerHeight/2;
+                evt.target.x=0;
+                evt.target.y=canvas.height/3*2;
+            }
                 break;
         case 13:
         case 12:
@@ -170,8 +175,8 @@ function onMousedown(evt) {
         case 10:
             if(bg.image==queue.getResult("dr2")){
                 evt.target.image=queue.getResult("bx1");
-                evt.target.scaleX=0.55;
-                evt.target.scaleY=0.55;
+                evt.target.scaleX=bg.scaleX;
+                evt.target.scaleY=bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
@@ -192,9 +197,9 @@ function onMousedown(evt) {
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.y=window.innerHeight/2;
                 evt.target.x=canvas.width-1200*bg.scaleX;
-                evt.target.scaleX=bg.scaleX*1.8;
-                evt.target.scaleY=bg.scaleY*1.8;
-                setInterval(movepaper,200);
+                evt.target.scaleX=bg.scaleX*1.6;
+                evt.target.scaleY=bg.scaleY*1.6;
+                setInterval(movepaper,150);
                 bg.image=queue.getResult("dr2c");
              }
             break;  
@@ -221,7 +226,7 @@ function onMousedown(evt) {
 
 
 function movepaper(){
-    fp.x+=10;
+    fp.x+=3;
 }
     
 function debugLog(txt){
@@ -240,20 +245,20 @@ function handleComplete5(){
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
     code1=new createjs.Bitmap(queue.getResult("cd1"));
-    code1.x=canvas.width-340*bg.scaleX;
-    code1.y=460*bg.scaleY;
+    code1.x=canvas.width-520*bg.scaleX;
+    code1.y=400*bg.scaleY;
     code1.num=11;
     stage.addChild(code1);
     code1.on("mousedown",onMousedown);
     code2=new createjs.Bitmap(queue.getResult("cd2"));
-    code2.x=canvas.width-340*bg.scaleX;
-    code2.y=1340*bg.scaleY;
+    code2.x=canvas.width-520*bg.scaleX;
+    code2.y=1200*bg.scaleY;
     code2.num=12;
     stage.addChild(code2);
     code2.on("mousedown",onMousedown);
     code3=new createjs.Bitmap(queue.getResult("cd3"));
-    code3.x=canvas.width-340*bg.scaleX;
-    code3.y=880*bg.scaleY;
+    code3.x=canvas.width-520*bg.scaleX;
+    code3.y=740*bg.scaleY;
     code3.num=13;
     stage.addChild(code3);
     code3.on("mousedown",onMousedown);
@@ -273,10 +278,8 @@ function handleComplete6(){
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
     obj10= new createjs.Bitmap(queue.getResult("bx1"));
-    obj10.x=canvas.width-200*bg.scaleX;
-    obj10.y=600*bg.scaleY;
-    obj10.scaleX=0.3;
-    obj10.scaleY=0.3;
+    obj10.scaleX=bg.scaleX*0.8;
+    obj10.scaleY=bg.scaleY*0.8;
     obj10.num=10;
     obj10.regX=obj10.image.width/2;
     obj10.regY=obj10.image.height/2;
@@ -376,7 +379,7 @@ function handleComplete(){
     stage.addChild(bg);
     obj11 = new createjs.Bitmap(queue.getResult("bu"));
     obj11.x=1;
-    obj11.y=1;
+    obj11.y=canvas.height-60;
     obj11.scaleX=0.5;
     obj11.scaleY=0.5;
     obj11.num=14;
@@ -423,49 +426,49 @@ function onProgress(event){
         queue.installPlugin(createjs.Sound);
         queue.on('progress', onProgress);
         queue.loadManifest([
-            {id:"bg1", src:"asset/background1.jpg"},
-            {id:"bg2", src:"asset/background2.jpg"},
-            {id:"bg1b", src:"asset/background1b.jpg"},
-            {id:"bg2b", src:"asset/background2b.jpg"},
-            {id:"bg3", src:"asset/background3.jpg"},
-            {id:"bg3b", src:"asset/background3b.jpg"},
-            {id:"obj0", src:"asset/obj0.gif"},
-            {id:"obj1", src:"asset/obj1.gif"},
-            {id:"obj2", src:"asset/obj2.gif"},
-            {id:"obj5", src:"asset/obj3.gif"},
-            {id:"obj4", src:"asset/obj4.gif"},
-            {id:"obj3", src:"asset/obj5.gif"},
-            {id:"obj6", src:"asset/obj6.gif"},
-            {id:"obj7", src:"asset/obj7.gif"},
-            {id:"obj8", src:"asset/obj8.gif"},
-            {id:"bo", src:"asset/bottle.gif"},
-            {id:"bk1", src:"asset/book1.gif"},
-            {id:"bk2", src:"asset/book2.gif"},
-            {id:"bx1", src:"asset/box1.gif"},
-            {id:"bx2", src:"asset/box2.gif"},
-            {id:"bx3", src:"asset/box3.gif"},
-            {id:"cl1", src:"asset/clue1.gif"},
-            {id:"cl2", src:"asset/clue2.gif"},
-            {id:"cl3", src:"asset/clue3.gif"},
-            {id:"cl4", src:"asset/clue4.gif"},
-            {id:"cl5", src:"asset/clue5.gif"},
-            {id:"dr1", src:"asset/drawer1.jpg"},
-            {id:"dr2", src:"asset/drawer2.jpg"},
-            {id:"dr2b", src:"asset/drawer2b.jpg"},
-            {id:"dr2c", src:"asset/drawer2c.jpg"},
-            {id:"bk0", src:"asset/book0.gif"},
-            {id:"cd1", src:"asset/code1.gif"},
-            {id:"cd2", src:"asset/code2.gif"},
-            {id:"cd3", src:"asset/code3.gif"},
-            {id:"fp", src:"asset/final paper.jpg"},
-            {id:"fl1", src:"asset/first letter1.jpg"},
-            {id:"fl2", src:"asset/first letter2.jpg"},
-            {id:"fl3", src:"asset/first letter3.jpg"},
-            {id:"fl4", src:"asset/first letter4.jpg"},
-            {id:"fl0", src:"asset/first letter0.jpg"},
-            {id:"bu", src:"asset/button.gif"},
-            {id:"bg4", src:"asset/background4.jpg"},
-            {id:"sound", src:"asset/bg.ogg"}
+            {id:"bg1", src:"http://7xliyb.com1.z0.glb.clouddn.com/background1.jpg"},
+            {id:"bg2", src:"http://7xliyb.com1.z0.glb.clouddn.com/background2.jpg"},
+            {id:"bg1b", src:"http://7xliyb.com1.z0.glb.clouddn.com/background1b.jpg"},
+            {id:"bg2b", src:"http://7xliyb.com1.z0.glb.clouddn.com/background2b.jpg"},
+            {id:"bg3", src:"http://7xliyb.com1.z0.glb.clouddn.com/background3.jpg"},
+            {id:"bg3b", src:"http://7xliyb.com1.z0.glb.clouddn.com/background3b.jpg"},
+            {id:"obj0", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj0.gif"},
+            {id:"obj1", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj1.gif"},
+            {id:"obj2", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj2.gif"},
+            {id:"obj5", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj3.gif"},
+            {id:"obj4", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj4.gif"},
+            {id:"obj3", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj5.gif"},
+            {id:"obj6", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj6.gif"},
+            {id:"obj7", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj7.gif"},
+            {id:"obj8", src:"http://7xliyb.com1.z0.glb.clouddn.com/obj8.gif"},
+            {id:"bo", src:"http://7xliyb.com1.z0.glb.clouddn.com/bottle.gif"},
+            {id:"bk1", src:"http://7xliyb.com1.z0.glb.clouddn.com/book1.gif"},
+            {id:"bk2", src:"http://7xliyb.com1.z0.glb.clouddn.com/book2.gif"},
+            {id:"bx1", src:"http://7xliyb.com1.z0.glb.clouddn.com/box1.gif"},
+            {id:"bx2", src:"http://7xliyb.com1.z0.glb.clouddn.com/box2.gif"},
+            {id:"bx3", src:"http://7xliyb.com1.z0.glb.clouddn.com/box3.gif"},
+            {id:"cl1", src:"http://7xliyb.com1.z0.glb.clouddn.com/clue1.gif"},
+            {id:"cl2", src:"http://7xliyb.com1.z0.glb.clouddn.com/clue2.gif"},
+            {id:"cl3", src:"http://7xliyb.com1.z0.glb.clouddn.com/clue3.gif"},
+            {id:"cl4", src:"http://7xliyb.com1.z0.glb.clouddn.com/clue4.gif"},
+            {id:"cl5", src:"http://7xliyb.com1.z0.glb.clouddn.com/clue5.gif"},
+            {id:"dr1", src:"http://7xliyb.com1.z0.glb.clouddn.com/drawer1.jpg"},
+            {id:"dr2", src:"http://7xliyb.com1.z0.glb.clouddn.com/drawer2.jpg"},
+            {id:"dr2b", src:"http://7xliyb.com1.z0.glb.clouddn.com/drawer2b.jpg"},
+            {id:"dr2c", src:"http://7xliyb.com1.z0.glb.clouddn.com/drawer2c.jpg"},
+            {id:"bk0", src:"http://7xliyb.com1.z0.glb.clouddn.com/book0.gif"},
+            {id:"cd1", src:"http://7xliyb.com1.z0.glb.clouddn.com/code1.gif"},
+            {id:"cd2", src:"http://7xliyb.com1.z0.glb.clouddn.com/code2.gif"},
+            {id:"cd3", src:"http://7xliyb.com1.z0.glb.clouddn.com/code3.gif"},
+            {id:"fp", src:"http://7xliyb.com1.z0.glb.clouddn.com/final paper.jpg"},
+            {id:"fl1", src:"http://7xliyb.com1.z0.glb.clouddn.com/first letter1.jpg"},
+            {id:"fl2", src:"http://7xliyb.com1.z0.glb.clouddn.com/first letter2.jpg"},
+            {id:"fl3", src:"http://7xliyb.com1.z0.glb.clouddn.com/first letter3.jpg"},
+            {id:"fl4", src:"http://7xliyb.com1.z0.glb.clouddn.com/first letter4.jpg"},
+            {id:"fl0", src:"http://7xliyb.com1.z0.glb.clouddn.com/first letter0.jpg"},
+            {id:"bu", src:"http://7xliyb.com1.z0.glb.clouddn.com/button.gif"},
+            {id:"bg4", src:"http://7xliyb.com1.z0.glb.clouddn.com/background4.jpg"},
+            {id:"sound", src:"http://7xliyb.com1.z0.glb.clouddn.com/bg.ogg"}
 
             
             
