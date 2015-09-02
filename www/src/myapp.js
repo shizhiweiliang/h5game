@@ -1,4 +1,4 @@
-var canvas,fp, obj9, obj10, obj11, code1, code2, code3, stage, bg,cond=0,obj=[],coord =[{x:700,y:500},{x:60,y:77},{x:480,y:490},{x:595,y:230},{x:570,y:410},{x:60,y:510},{x:440,y:430},{x:100,y:450},{x:650,y:420}];
+var canvas,fp, obj9, obj10, obj11, code1, code2, code3, stage, bg,cond=0,obj=[],coord =[{y:1400,x:1000},{y:104,x:260},{y:960,x:980},{y:1040,x:500},{y:1270,x:960},{y:120,x:1000},{y:820,x:1000},{y:180,x:900},{y:1280,x:840}];
 var queue = new createjs.LoadQueue(true);
 
 function tick(event) {
@@ -190,11 +190,11 @@ function onMousedown(evt) {
                 fp=evt.target;
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
-                evt.target.x=window.innerWidth/2;
-                evt.target.y=700;
-                evt.target.scaleX=1;
-                evt.target.scaleY=1;
-                setInterval(movepaper,300);
+                evt.target.y=window.innerHeight/2;
+                evt.target.x=canvas.width-1200*bg.scaleX;
+                evt.target.scaleX=bg.scaleX*1.8;
+                evt.target.scaleY=bg.scaleY*1.8;
+                setInterval(movepaper,200);
                 bg.image=queue.getResult("dr2c");
              }
             break;  
@@ -221,7 +221,7 @@ function onMousedown(evt) {
 
 
 function movepaper(){
-    fp.y-=10;
+    fp.x+=10;
 }
     
 function debugLog(txt){
@@ -240,20 +240,20 @@ function handleComplete5(){
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
     code1=new createjs.Bitmap(queue.getResult("cd1"));
-    code1.x=230;
-    code1.y=170;
+    code1.x=canvas.width-340*bg.scaleX;
+    code1.y=460*bg.scaleY;
     code1.num=11;
     stage.addChild(code1);
     code1.on("mousedown",onMousedown);
     code2=new createjs.Bitmap(queue.getResult("cd2"));
-    code2.x=670;
-    code2.y=170;
+    code2.x=canvas.width-340*bg.scaleX;
+    code2.y=1340*bg.scaleY;
     code2.num=12;
     stage.addChild(code2);
     code2.on("mousedown",onMousedown);
     code3=new createjs.Bitmap(queue.getResult("cd3"));
-    code3.x=440;
-    code3.y=170;
+    code3.x=canvas.width-340*bg.scaleX;
+    code3.y=880*bg.scaleY;
     code3.num=13;
     stage.addChild(code3);
     code3.on("mousedown",onMousedown);
@@ -273,8 +273,8 @@ function handleComplete6(){
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
     obj10= new createjs.Bitmap(queue.getResult("bx1"));
-    obj10.x=300;
-    obj10.y=100;
+    obj10.x=canvas.width-200*bg.scaleX;
+    obj10.y=600*bg.scaleY;
     obj10.scaleX=0.3;
     obj10.scaleY=0.3;
     obj10.num=10;
@@ -295,8 +295,8 @@ function handleComplete2(){
     stage.addChild(bg);
     for(var i=3;i<6;i++){
         obj[i]=new createjs.Bitmap(queue.getResult("obj"+i));
-        obj[i].x=coord[i].x;
-        obj[i].y=coord[i].y;
+        obj[i].x=canvas.width-coord[i].x*bg.scaleX;
+        obj[i].y=coord[i].y*bg.scaleY;
         obj[i].scaleX=bg.scaleX;
         obj[i].scaleY=bg.scaleY;
         obj[i].num=i;
@@ -316,8 +316,8 @@ function handleComplete3(){
     
     for(var i=6;i<9;i++){
         obj[i]=new createjs.Bitmap(queue.getResult("obj"+i));
-        obj[i].x=coord[i].x;
-        obj[i].y=coord[i].y;
+        obj[i].x=canvas.width-coord[i].x*bg.scaleX;
+        obj[i].y=coord[i].y*bg.scaleY;
         obj[i].scaleX=bg.scaleX;
         obj[i].scaleY=bg.scaleY;
         obj[i].num=i;
@@ -334,31 +334,13 @@ function handleComplete4(){
     stage.addChild(bg);
     
     obj9 = new createjs.Bitmap(queue.getResult("bk0"));
-    obj9.x=480;
-    obj9.y=250;
+    obj9.x=canvas.width-940*bg.scaleX;
+    obj9.y=835*bg.scaleY;
     obj9.scaleX=bg.scaleX;
     obj9.scaleY=bg.scaleY;
     obj9.num=9;
     stage.addChild(obj9);
     obj9.on("mousedown",onMousedown);
-}
-
-function handleComplete(){
-    loadHandler();
-    bg = new createjs.Bitmap(queue.getResult("fl0"));
-    bg.x = 1;
-    bg.y = 1;
-    bg.scaleX=window.innerWidth/bg.image.width;
-    bg.scaleY=window.innerHeight/bg.image.height;
-    stage.addChild(bg);
-    obj11 = new createjs.Bitmap(queue.getResult("bu"));
-    obj11.x=900;
-    obj11.y=450;
-    obj11.num=14;
-    stage.addChild(obj11);
-    obj11.on("mousedown",onMousedown);
-    
-createjs.Ticker.addEventListener("tick", tick);
 }
 
 function handleComplete7(){
@@ -371,8 +353,8 @@ function handleComplete7(){
 
     for(var i=0;i<3;i++){
         obj[i]=new createjs.Bitmap(queue.getResult("obj"+i));
-        obj[i].x=coord[i].x;
-        obj[i].y=coord[i].y;
+        obj[i].x=canvas.width-coord[i].x*bg.scaleX;
+        obj[i].y=coord[i].y*bg.scaleY;
         obj[i].scaleX=bg.scaleX;
         obj[i].scaleY=bg.scaleY;
         obj[i].num=i;
@@ -382,18 +364,33 @@ function handleComplete7(){
     createjs.Ticker.addEventListener("tick", tick);
 }
 
+function handleComplete(){
+    $("#progress").hide();
+    $("#StartButton").show();
+    loadHandler();
+    bg = new createjs.Bitmap(queue.getResult("fl0"));
+    bg.x = 1;
+    bg.y = 1;
+    bg.scaleX=window.innerWidth/bg.image.width;
+    bg.scaleY=window.innerHeight/bg.image.height;
+    stage.addChild(bg);
+    obj11 = new createjs.Bitmap(queue.getResult("bu"));
+    obj11.x=1;
+    obj11.y=1;
+    obj11.scaleX=0.5;
+    obj11.scaleY=0.5;
+    obj11.num=14;
+    stage.addChild(obj11);
+    obj11.on("mousedown",onMousedown);
+    
+createjs.Ticker.addEventListener("tick", tick);
+}
+
 function loadHandler(){
     var instance = createjs.Sound.play("sound");
     instance.on("complete",createjs.proxy(this.handleComplete,this));
     instance.volume=0.5;
 }
-
-
-
-
-
-
-
 
 function onProgress(event){
     var progress=Math.round(event.loaded*100);
@@ -401,7 +398,6 @@ function onProgress(event){
     $progress=$("#progress");
     $progress.text(progress+'%');
     }
-
 
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
@@ -411,11 +407,15 @@ function onProgress(event){
            $("#testCanvas").show();
         });
         canvas = document.getElementById("testCanvas");
-        // set canvas width
-        canvas.width = window.innerWidth;
-        // set canvas height
-        canvas.height = window.innerHeight;
 
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        window.addEventListener("onorientationchange", function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
         // create a stage object to work with the canvas. This is the top level node in the display list:
         stage = new createjs.Stage(canvas);
 
@@ -466,15 +466,7 @@ function onProgress(event){
             {id:"bu", src:"asset/button.gif"},
             {id:"bg4", src:"asset/background4.jpg"},
             {id:"sound", src:"asset/bg.ogg"}
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
             
             
         ]);
