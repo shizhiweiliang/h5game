@@ -194,7 +194,7 @@ function onMousedown(evt) {
                 evt.target.y=700;
                 evt.target.scaleX=1;
                 evt.target.scaleY=1;
-                setInterval("movepaper()",300);
+                setInterval(movepaper,300);
                 bg.image=queue.getResult("dr2c");
              }
             break;  
@@ -263,8 +263,6 @@ function handleComplete5(){
     code1.scaleY=bg.scaleY;
     code2.scaleY=bg.scaleY;
     code3.scaleY=bg.scaleY;
-    
-createjs.Ticker.addEventListener("tick", tick);
 }
 
 function handleComplete6(){
@@ -286,9 +284,6 @@ function handleComplete6(){
     obj10.y=window.innerHeight/2;
     stage.addChild(obj10);
     obj10.on("mousedown",onMousedown);
-    
- 
- createjs.Ticker.addEventListener("tick", tick);
 }
     
 function handleComplete2(){
@@ -308,7 +303,6 @@ function handleComplete2(){
         stage.addChild(obj[i]);
         obj[i].on("mousedown",onMousedown);
     }
-    createjs.Ticker.addEventListener("tick", tick);
 }
 
 
@@ -330,7 +324,6 @@ function handleComplete3(){
         stage.addChild(obj[i]);
         obj[i].on("mousedown",onMousedown);
     }
-    createjs.Ticker.addEventListener("tick", tick);
 }
 function handleComplete4(){
     bg = new createjs.Bitmap(queue.getResult("bg4"));
@@ -348,8 +341,6 @@ function handleComplete4(){
     obj9.num=9;
     stage.addChild(obj9);
     obj9.on("mousedown",onMousedown);
- 
- createjs.Ticker.addEventListener("tick", tick);
 }
 
 function handleComplete(){
@@ -406,7 +397,7 @@ function loadHandler(){
 
 function onProgress(event){
     var progress=Math.round(event.loaded*100);
-    console.log('General progress',Math.round(event.loaded)*100,event);
+    
     $progress=$("#progress");
     $progress.text(progress+'%');
     }
