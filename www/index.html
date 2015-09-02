@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height:100%;">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>神秘礼物</title>
@@ -29,13 +29,19 @@
 
     <!-- We also provide hosted minified versions of all CreateJS libraries.
       http://code.createjs.com -->
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="lib/createjs-2015.05.21.min.js"></script>
     <!-- Main Game -->
     <script src="src/myapp.js"></script>
 </head>
 
-<body>
+<body style="height:100%;">
+    
     <!-- Main stage for rendering game -->
-    <canvas id="testCanvas" style="background-color:black"></canvas>
+    <div id="SplashScreen" style="background:url(asset/front.jpg);height:100%;">
+        <h1></h1><img id="StartButton" type="button" value="Start" src="asset/start button.gif" style="position:fixed;left:150px;top:450px;"/> <div id="progress"></div></div>
+    <canvas id="testCanvas" style="display:none;">Game Stuff</canvas>
+
 </body>
+    
 </html>
