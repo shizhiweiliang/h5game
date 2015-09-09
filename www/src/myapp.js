@@ -201,6 +201,7 @@ function onMousedown(evt) {
                 evt.target.scaleY=bg.scaleY*1.6;
                 setInterval(movepaper,150);
                 bg.image=queue.getResult("dr2c");
+                loadHandler2();
              }
             break;  
         case 14:
@@ -226,7 +227,7 @@ function onMousedown(evt) {
 
 
 function movepaper(){
-    fp.x+=3;
+    fp.x+=1.5;
 }
     
 function debugLog(txt){
@@ -370,10 +371,10 @@ function handleComplete7(){
 function handleComplete(){
     $("#progress").hide();
     $("#StartButton").show();
-    loadHandler();
+    //loadHandler();
     bg = new createjs.Bitmap(queue.getResult("fl0"));
     bg.x = 1;
-    bg.y = 1;
+    bg.y= 1;
     bg.scaleX=window.innerWidth/bg.image.width;
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
@@ -394,7 +395,10 @@ function loadHandler(){
     instance.on("complete",createjs.proxy(this.handleComplete,this));
     instance.volume=0.5;
 }
-
+function loadHandler2(){
+    var instance = createjs.Sound.play("sound2");
+    instance.volume=0.5;
+}
 function onProgress(event){
     var progress=Math.round(event.loaded*100);
     
@@ -468,7 +472,8 @@ function onProgress(event){
             {id:"fl0", src:"http://7xliyb.com1.z0.glb.clouddn.com/first letter0.jpg"},
             {id:"bu", src:"http://7xliyb.com1.z0.glb.clouddn.com/button.gif"},
             {id:"bg4", src:"http://7xliyb.com1.z0.glb.clouddn.com/background4.jpg"},
-            {id:"sound", src:"http://7xliyb.com1.z0.glb.clouddn.com/bg.ogg"}
+            {id:"sound", src:"http://7xliyb.com1.z0.glb.clouddn.com/bg.ogg"},
+            {id:"sound2", src:"http://7xliyb.com1.z0.glb.clouddn.com/final.ogg"}
 
             
             
