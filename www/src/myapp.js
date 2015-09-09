@@ -1,118 +1,118 @@
-var canvas,fp, obj9, obj10, obj11, code1, code2, code3, stage, bg,cond=0,obj=[],coord =[{y:1250,x:980},{y:104,x:260},{y:840,x:980},{y:1030,x:500},{y:990,x:880},{y:120,x:1000},{y:780,x:980},{y:160,x:960},{y:1160,x:1000}];
+var canvas,fp,obj9,obj10,obj11,code1,code2,code3,stage,bg,cond=0,obj=[],coord =[{y:1250,x:980},{y:104,x:260},{y:840,x:980},{y:1030,x:500},{y:990,x:880},{y:120,x:1000},{y:780,x:980},{y:160,x:960},{y:1160,x:1000}];
 var queue = new createjs.LoadQueue(true);
 
-function tick(event) {
+function tick(event){
     stage.update(event);
 }
 
-function onMousedown(evt) {
+function onMousedown(evt){
     switch(evt.target.num){
-        case 0:
-        case 1:
-            stage.removeChild(evt.target);
-            cond+=1;
-            break;
-        case 2:
-            if(cond==2){
-                if(bg.image==queue.getResult("bg1")){
-                   evt.target.scaleX=3*bg.scaleX;
-                   evt.target.scaleY=3*bg.scaleY;
-                   evt.target.regX=evt.target.image.width/2;
-                   evt.target.regY=evt.target.image.height/2;
-                   evt.target.x=window.innerWidth/2;
-                   evt.target.y=window.innerHeight/2;
-                   bg.image=queue.getResult("bg1b");
-            }
-                else if(evt.target.image==queue.getResult("cl1")){
-                    stage.removeChild(bg);
-                    stage.removeChild(evt.target);
-                    setTimeout(handleComplete2,500);
-                }
-                else{
-                    evt.target.image=queue.getResult("cl1");
-                    evt.target.regX=evt.target.image.width/2;
-                    evt.target.regY=evt.target.image.height/2;
-                    evt.target.x=window.innerWidth/2;
-                    evt.target.y=window.innerHeight/2;
-                }
-            }
-                break;
-        case 5:
-            if(bg.image==queue.getResult("bg2")){
-                evt.target.scaleX=1.6*bg.scaleX;
-                evt.target.scaleY=1.6*bg.scaleY;
+    case 0:
+    case 1:
+        stage.removeChild(evt.target);
+        cond+=1;
+        break;
+    case 2:
+        if(cond==2){
+            if(bg.image==queue.getResult("bg1")){
+                evt.target.scaleX=3*bg.scaleX;
+                evt.target.scaleY=3*bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
                 evt.target.y=window.innerHeight/2;
-                bg.image=queue.getResult("bg2b");
+                bg.image=queue.getResult("bg1b");
             }
-            else if(evt.target.image==queue.getResult("cl2")){
-                stage.removeChild(evt.target);
-                bg.image=queue.getResult("bg2");
-            }
-            else{
-                 evt.target.image=queue.getResult("cl2");
-                 evt.target.regX=evt.target.image.width/2;
-                 evt.target.regY=evt.target.image.height/2;
-                 evt.target.x=window.innerWidth/2;
-                 evt.target.y=window.innerHeight/2;
-            }
-            break;
-        case 3:
-            if(bg.image==queue.getResult("bg2")){
-                evt.target.scaleX=1.6*bg.scaleX;
-                evt.target.scaleY=1.6*bg.scaleY;
-                evt.target.regX=evt.target.image.width/2;
-                evt.target.regY=evt.target.image.height/2;
-                evt.target.x=window.innerWidth/2;
-                evt.target.y=window.innerHeight/2;
-                bg.image=queue.getResult("bg2b");
-            }
-            else if(evt.target.image==queue.getResult("cl3")){
-                stage.removeChild(evt.target);
-                bg.image=queue.getResult("bg2");
-            }
-            else{
-                 evt.target.image=queue.getResult("cl3");
-                 evt.target.regX=evt.target.image.width/2;
-                 evt.target.regY=evt.target.image.height/2;
-                 evt.target.x=window.innerWidth/2;
-                 evt.target.y=window.innerHeight/2;
-            }
-            break;
-        case 4:
-            if(bg.image==queue.getResult("bg2")){
-                evt.target.image=queue.getResult("bo");
-                evt.target.regX=evt.target.image.width/2;
-                evt.target.regY=evt.target.image.height/2;
-                evt.target.x=window.innerWidth/2;
-                evt.target.y=window.innerHeight/2;
-                bg.image=queue.getResult("bg2b");
-            }
-            else if(evt.target.image==queue.getResult("cl4")){
+            else if(evt.target.image==queue.getResult("cl1")){
                 stage.removeChild(bg);
                 stage.removeChild(evt.target);
-                setTimeout(handleComplete3,500);
+                setTimeout(handleComplete2,500);
             }
             else{
-                evt.target.image=queue.getResult("cl4");
-                evt.target.scaleX=1.6*bg.scaleX;
-                evt.target.scaleY=1.6*bg.scaleY;
+                evt.target.image=queue.getResult("cl1");
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
                 evt.target.y=window.innerHeight/2;
             }
-                break;
-        case 6:
-        case 7:
+        }
+        break;
+    case 5:
+        if(bg.image==queue.getResult("bg2")){
+            evt.target.scaleX=1.6*bg.scaleX;
+            evt.target.scaleY=1.6*bg.scaleY;
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=window.innerWidth/2;
+            evt.target.y=window.innerHeight/2;
+            bg.image=queue.getResult("bg2b");
+        }
+        else if(evt.target.image==queue.getResult("cl2")){
             stage.removeChild(evt.target);
-            cond+=1;
-            break;
-        case 8:
-            if(cond==4){
-                if(bg.image==queue.getResult("bg3")){
+            bg.image=queue.getResult("bg2");
+        }
+        else{
+            evt.target.image=queue.getResult("cl2");
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=window.innerWidth/2;
+            evt.target.y=window.innerHeight/2;
+        }
+        break;
+    case 3:
+        if(bg.image==queue.getResult("bg2")){
+            evt.target.scaleX=1.6*bg.scaleX;
+            evt.target.scaleY=1.6*bg.scaleY;
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=window.innerWidth/2;
+            evt.target.y=window.innerHeight/2;
+            bg.image=queue.getResult("bg2b");
+        }
+        else if(evt.target.image==queue.getResult("cl3")){
+            stage.removeChild(evt.target);
+            bg.image=queue.getResult("bg2");
+        }
+        else{
+            evt.target.image=queue.getResult("cl3");
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=window.innerWidth/2;
+            evt.target.y=window.innerHeight/2;
+        }
+        break;
+    case 4:
+        if(bg.image==queue.getResult("bg2")){
+            evt.target.image=queue.getResult("bo");
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=window.innerWidth/2;
+            evt.target.y=window.innerHeight/2;
+            bg.image=queue.getResult("bg2b");
+        }
+        else if(evt.target.image==queue.getResult("cl4")){
+            stage.removeChild(bg);
+            stage.removeChild(evt.target);
+            setTimeout(handleComplete3,500);
+        }
+        else{
+            evt.target.image=queue.getResult("cl4");
+            evt.target.scaleX=1.6*bg.scaleX;
+            evt.target.scaleY=1.6*bg.scaleY;
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=window.innerWidth/2;
+            evt.target.y=window.innerHeight/2;
+        }
+        break;
+    case 6:
+    case 7:
+        stage.removeChild(evt.target);
+        cond+=1;
+        break;
+    case 8:
+        if(cond==4){
+            if(bg.image==queue.getResult("bg3")){
                 evt.target.scaleX=1.6*bg.scaleX;
                 evt.target.scaleY=1.6*bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
@@ -121,107 +121,107 @@ function onMousedown(evt) {
                 evt.target.y=window.innerHeight/2;
                 bg.image=queue.getResult("bg3b");
             }
-                else if(evt.target.image==queue.getResult("cl5")){
+            else if(evt.target.image==queue.getResult("cl5")){
                 stage.removeChild(bg);
                 stage.removeChild(evt.target);
                 setTimeout(handleComplete4,500);
             }
-                else{
+            else{
                 evt.target.image=queue.getResult("cl5");
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
                 evt.target.x=window.innerWidth/2;
                 evt.target.y=window.innerHeight/2;
-                }
             }
-            break;
-        case 9:
-            if(bg.image==queue.getResult("bg1")){
-                evt.target.image=queue.getResult("bk1");
-                evt.target.regX=evt.target.image.width/2;
-                evt.target.regY=evt.target.image.height/2;
-                evt.target.x=0;
-                evt.target.y=window.innerHeight/2;
-                bg.image=queue.getResult("bg1b");
-            }
-            else if(evt.target.image==queue.getResult("bk2")){
-                stage.removeChild(bg);
-                stage.removeChild(evt.target);
-                setTimeout(handleComplete5,500);
-            }
-            else{
-                evt.target.image=queue.getResult("bk2");
-                evt.target.scaleX=2.5*bg.scaleX;
-                evt.target.scaleY=2.5*bg.scaleY; 
-                evt.target.regX=evt.target.image.width/2;
-                evt.target.regY=evt.target.image.height/2;
-                evt.target.x=0;
-                evt.target.y=canvas.height/3*2;
-            }
-                break;
-        case 13:
-        case 12:
-            cond+=1;
-            break;
-        case 11:
-            if(cond==6){
-                stage.removeChild(evt.target);
-                stage.removeChild(code2);
-                stage.removeChild(code3);
-                stage.removeChild(bg);
-                setTimeout(handleComplete6,500);
-            }
-                break;
-        case 10:
-            if(bg.image==queue.getResult("dr2")){
-                evt.target.image=queue.getResult("bx1");
-                evt.target.scaleX=bg.scaleX;
-                evt.target.scaleY=bg.scaleY;
-                evt.target.regX=evt.target.image.width/2;
-                evt.target.regY=evt.target.image.height/2;
-                evt.target.x=window.innerWidth/2;
-                evt.target.y=window.innerHeight/2;
-                bg.image=queue.getResult("dr2b");
-            }
+        }
+        break;
+    case 9:
+        if(bg.image==queue.getResult("bg1")){
+            evt.target.image=queue.getResult("bk1");
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=0;
+            evt.target.y=window.innerHeight/2;
+            bg.image=queue.getResult("bg1b");
+        }
+        else if(evt.target.image==queue.getResult("bk2")){
+            stage.removeChild(bg);
+            stage.removeChild(evt.target);
+            setTimeout(handleComplete5,500);
+        }
+        else{
+            evt.target.image=queue.getResult("bk2");
+            evt.target.scaleX=2.5*bg.scaleX;
+            evt.target.scaleY=2.5*bg.scaleY; 
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=0;
+            evt.target.y=canvas.height/3*2;
+        }
+        break;
+    case 13:
+    case 12:
+        cond+=1;
+        break;
+    case 11:
+        if(cond==6){
+            stage.removeChild(evt.target);
+            stage.removeChild(code2);
+            stage.removeChild(code3);
+            stage.removeChild(bg);
+            setTimeout(handleComplete6,500);
+        }
+        break;
+    case 10:
+        if(bg.image==queue.getResult("dr2")){
+            evt.target.image=queue.getResult("bx1");
+            evt.target.scaleX=bg.scaleX;
+            evt.target.scaleY=bg.scaleY;
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.x=window.innerWidth/2;
+            evt.target.y=window.innerHeight/2;
+            bg.image=queue.getResult("dr2b");
+        }
                 
-             else if(evt.target.image==queue.getResult("bx1")){
-                 evt.target.image=queue.getResult("bx2");
-             }
-             else if(evt.target.image==queue.getResult("bx2")){
-                 evt.target.image=queue.getResult("bx3");
-             }
-             else{
-                evt.target.image=queue.getResult("fp");
-                fp=evt.target;
-                evt.target.regX=evt.target.image.width/2;
-                evt.target.regY=evt.target.image.height/2;
-                evt.target.y=window.innerHeight/2;
-                evt.target.x=canvas.width-1200*bg.scaleX;
-                evt.target.scaleX=bg.scaleX*1.6;
-                evt.target.scaleY=bg.scaleY*1.6;
-                setInterval(movepaper,150);
-                bg.image=queue.getResult("dr2c");
-                loadHandler2();
-             }
-            break;  
-        case 14:
-            if(bg.image==queue.getResult("fl0")){
-                bg.image=queue.getResult("fl1");
-            }
-            else if(bg.image==queue.getResult("fl1")){
-                bg.image=queue.getResult("fl2");
-            }
-            else if(bg.image==queue.getResult("fl2")){
-                bg.image=queue.getResult("fl3");
-            }
-            else if(bg.image==queue.getResult("fl3")){
-                bg.image=queue.getResult("fl4");
-            }
-            else{
-                stage.removeChild(bg);
-                stage.removeChild(evt.target);
-                setTimeout(handleComplete7,500);
-            }
+        else if(evt.target.image==queue.getResult("bx1")){
+            evt.target.image=queue.getResult("bx2");
+        }
+        else if(evt.target.image==queue.getResult("bx2")){
+            evt.target.image=queue.getResult("bx3");
+        }
+        else{
+            evt.target.image=queue.getResult("fp");
+            fp=evt.target;
+            evt.target.regX=evt.target.image.width/2;
+            evt.target.regY=evt.target.image.height/2;
+            evt.target.y=window.innerHeight/2;
+            evt.target.x=canvas.width-1200*bg.scaleX;
+            evt.target.scaleX=bg.scaleX*1.6;
+            evt.target.scaleY=bg.scaleY*1.6;
+            setInterval(movepaper,150);
+            bg.image=queue.getResult("dr2c");
+            loadHandler2();
+        }
+        break;  
+    case 14:
+        if(bg.image==queue.getResult("fl0")){
+            bg.image=queue.getResult("fl1");
+        }
+        else if(bg.image==queue.getResult("fl1")){
+            bg.image=queue.getResult("fl2");
+        }
+        else if(bg.image==queue.getResult("fl2")){
+            bg.image=queue.getResult("fl3");
+        }
+        else if(bg.image==queue.getResult("fl3")){
+            bg.image=queue.getResult("fl4");
+        }
+        else{
+            stage.removeChild(bg);
+            stage.removeChild(evt.target);
+            setTimeout(handleComplete7,500);
+        }
     }
 }
 
@@ -245,29 +245,32 @@ function handleComplete5(){
     bg.scaleX=window.innerWidth/bg.image.width;
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
+    
     code1=new createjs.Bitmap(queue.getResult("cd1"));
     code1.x=canvas.width-520*bg.scaleX;
     code1.y=400*bg.scaleY;
+    code1.scaleX=bg.scaleX;
+    code1.scaleY=bg.scaleY;
     code1.num=11;
     stage.addChild(code1);
     code1.on("mousedown",onMousedown);
+    
     code2=new createjs.Bitmap(queue.getResult("cd2"));
     code2.x=canvas.width-520*bg.scaleX;
     code2.y=1200*bg.scaleY;
+    code2.scaleX=bg.scaleX;
+    code2.scaleY=bg.scaleY;
     code2.num=12;
     stage.addChild(code2);
     code2.on("mousedown",onMousedown);
+    
     code3=new createjs.Bitmap(queue.getResult("cd3"));
     code3.x=canvas.width-520*bg.scaleX;
     code3.y=740*bg.scaleY;
     code3.num=13;
     stage.addChild(code3);
     code3.on("mousedown",onMousedown);
-    code1.scaleX=bg.scaleX;
-    code2.scaleX=bg.scaleX;
     code3.scaleX=bg.scaleX; 
-    code1.scaleY=bg.scaleY;
-    code2.scaleY=bg.scaleY;
     code3.scaleY=bg.scaleY;
 }
 
@@ -278,6 +281,7 @@ function handleComplete6(){
     bg.scaleX=window.innerWidth/bg.image.width;
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
+    
     obj10= new createjs.Bitmap(queue.getResult("bx1"));
     obj10.scaleX=bg.scaleX*0.8;
     obj10.scaleY=bg.scaleY*0.8;
@@ -297,6 +301,7 @@ function handleComplete2(){
     bg.scaleX=window.innerWidth/bg.image.width;
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
+    
     for(var i=3;i<6;i++){
         obj[i]=new createjs.Bitmap(queue.getResult("obj"+i));
         obj[i].x=canvas.width-coord[i].x*bg.scaleX;
@@ -371,13 +376,14 @@ function handleComplete7(){
 function handleComplete(){
     $("#progress").hide();
     $("#StartButton").show();
-    //loadHandler();
+    loadHandler();
     bg = new createjs.Bitmap(queue.getResult("fl0"));
     bg.x = 1;
     bg.y= 1;
     bg.scaleX=window.innerWidth/bg.image.width;
     bg.scaleY=window.innerHeight/bg.image.height;
     stage.addChild(bg);
+    
     obj11 = new createjs.Bitmap(queue.getResult("bu"));
     obj11.x=1;
     obj11.y=canvas.height-60;
@@ -404,9 +410,9 @@ function onProgress(event){
     
     $progress=$("#progress");
     $progress.text(progress+'%');
-    }
+}
 
-(function() {
+(function(){
     document.addEventListener('DOMContentLoaded', function() {
         // get a reference to the canvas we'll be working with:
         $("#StartButton").click(function(){
