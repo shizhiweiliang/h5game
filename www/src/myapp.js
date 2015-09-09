@@ -2,19 +2,25 @@ var canvas,fp,obj9,obj10,obj11,code1,code2,code3,stage,bg,cond=0,obj=[],coord =[
 var queue = new createjs.LoadQueue(true);
 
 function tick(event){
+//refresh the canvas
     stage.update(event);
 }
 
 function onMousedown(evt){
     switch(evt.target.num){
     case 0:
+    //when you click the coin
     case 1:
+    //when you click the candle
         stage.removeChild(evt.target);
         cond+=1;
         break;
     case 2:
+    //when you click the green box
         if(cond==2){
+        //only after you click the coin and the candle can you click the box
             if(bg.image==queue.getResult("bg1")){
+            //when you take a closer look at the box
                 evt.target.scaleX=3*bg.scaleX;
                 evt.target.scaleY=3*bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
@@ -24,11 +30,13 @@ function onMousedown(evt){
                 bg.image=queue.getResult("bg1b");
             }
             else if(evt.target.image==queue.getResult("cl1")){
+            //when you click the box for the 3rd time
                 stage.removeChild(bg);
                 stage.removeChild(evt.target);
                 setTimeout(handleComplete2,500);
             }
             else{
+            //when you open the box
                 evt.target.image=queue.getResult("cl1");
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
@@ -38,7 +46,9 @@ function onMousedown(evt){
         }
         break;
     case 5:
+    //when you click the bottle lid        
         if(bg.image==queue.getResult("bg2")){
+        //when you take a closer look at the lid
             evt.target.scaleX=1.6*bg.scaleX;
             evt.target.scaleY=1.6*bg.scaleY;
             evt.target.regX=evt.target.image.width/2;
@@ -48,10 +58,12 @@ function onMousedown(evt){
             bg.image=queue.getResult("bg2b");
         }
         else if(evt.target.image==queue.getResult("cl2")){
+        //when you click the lid for the 3rd time
             stage.removeChild(evt.target);
             bg.image=queue.getResult("bg2");
         }
         else{
+        //when you turn the lid upside down
             evt.target.image=queue.getResult("cl2");
             evt.target.regX=evt.target.image.width/2;
             evt.target.regY=evt.target.image.height/2;
@@ -60,7 +72,9 @@ function onMousedown(evt){
         }
         break;
     case 3:
+    //when you click the gray tablet        
         if(bg.image==queue.getResult("bg2")){
+        //when you take a closer look at the tablet
             evt.target.scaleX=1.6*bg.scaleX;
             evt.target.scaleY=1.6*bg.scaleY;
             evt.target.regX=evt.target.image.width/2;
@@ -70,10 +84,12 @@ function onMousedown(evt){
             bg.image=queue.getResult("bg2b");
         }
         else if(evt.target.image==queue.getResult("cl3")){
+        //when you click the tablet for the 3rd time
             stage.removeChild(evt.target);
             bg.image=queue.getResult("bg2");
         }
         else{
+        //when you're trying to see the back of the tablet
             evt.target.image=queue.getResult("cl3");
             evt.target.regX=evt.target.image.width/2;
             evt.target.regY=evt.target.image.height/2;
@@ -82,7 +98,9 @@ function onMousedown(evt){
         }
         break;
     case 4:
+    //when you click the red chocolate        
         if(bg.image==queue.getResult("bg2")){
+        //when you take a closer look at the chocolate
             evt.target.image=queue.getResult("bo");
             evt.target.regX=evt.target.image.width/2;
             evt.target.regY=evt.target.image.height/2;
@@ -91,11 +109,13 @@ function onMousedown(evt){
             bg.image=queue.getResult("bg2b");
         }
         else if(evt.target.image==queue.getResult("cl4")){
+        //when you click the chocolate for the 3rd time
             stage.removeChild(bg);
             stage.removeChild(evt.target);
             setTimeout(handleComplete3,500);
         }
         else{
+        //when you unwrap the chocolate
             evt.target.image=queue.getResult("cl4");
             evt.target.scaleX=1.6*bg.scaleX;
             evt.target.scaleY=1.6*bg.scaleY;
@@ -106,13 +126,18 @@ function onMousedown(evt){
         }
         break;
     case 6:
+    //when you click the white nail polish        
     case 7:
+    //when you click the candy        
         stage.removeChild(evt.target);
         cond+=1;
         break;
     case 8:
+    //when you click the nepenthes        
         if(cond==4){
+        //only after you click the nail polish and the candy can you click the nepenthes
             if(bg.image==queue.getResult("bg3")){
+            //when you take a closer look at the nepenthes
                 evt.target.scaleX=1.6*bg.scaleX;
                 evt.target.scaleY=1.6*bg.scaleY;
                 evt.target.regX=evt.target.image.width/2;
@@ -122,11 +147,13 @@ function onMousedown(evt){
                 bg.image=queue.getResult("bg3b");
             }
             else if(evt.target.image==queue.getResult("cl5")){
+            //when you click the nepenthes for the 3rd time
                 stage.removeChild(bg);
                 stage.removeChild(evt.target);
                 setTimeout(handleComplete4,500);
             }
             else{
+            //when you turn the nepenthes upside down
                 evt.target.image=queue.getResult("cl5");
                 evt.target.regX=evt.target.image.width/2;
                 evt.target.regY=evt.target.image.height/2;
@@ -136,7 +163,9 @@ function onMousedown(evt){
         }
         break;
     case 9:
+    //when you click the book with the title Sherlock Holmes        
         if(bg.image==queue.getResult("bg1")){
+        //when you take a closer look at the book
             evt.target.image=queue.getResult("bk1");
             evt.target.regX=evt.target.image.width/2;
             evt.target.regY=evt.target.image.height/2;
@@ -145,11 +174,13 @@ function onMousedown(evt){
             bg.image=queue.getResult("bg1b");
         }
         else if(evt.target.image==queue.getResult("bk2")){
+        //when you click the book for the 3rd time
             stage.removeChild(bg);
             stage.removeChild(evt.target);
             setTimeout(handleComplete5,500);
         }
         else{
+        //when you open the book and take a closer look at the page number
             evt.target.image=queue.getResult("bk2");
             evt.target.scaleX=2.5*bg.scaleX;
             evt.target.scaleY=2.5*bg.scaleY; 
@@ -160,11 +191,15 @@ function onMousedown(evt){
         }
         break;
     case 13:
+    //when you click the code 4        
     case 12:
+    //when you click the code 3        
         cond+=1;
         break;
     case 11:
+    //when you click the code 0       
         if(cond==6){
+        //when you get the code right
             stage.removeChild(evt.target);
             stage.removeChild(code2);
             stage.removeChild(code3);
@@ -173,7 +208,9 @@ function onMousedown(evt){
         }
         break;
     case 10:
+    //when you click the candy box       
         if(bg.image==queue.getResult("dr2")){
+        //when you take a closer look at the candy box
             evt.target.image=queue.getResult("bx1");
             evt.target.scaleX=bg.scaleX;
             evt.target.scaleY=bg.scaleY;
@@ -185,12 +222,15 @@ function onMousedown(evt){
         }
                 
         else if(evt.target.image==queue.getResult("bx1")){
+        //when you open the box
             evt.target.image=queue.getResult("bx2");
         }
         else if(evt.target.image==queue.getResult("bx2")){
+        //when you get some of the chocolate out and see a letter
             evt.target.image=queue.getResult("bx3");
         }
         else{
+        // when you read the letter
             evt.target.image=queue.getResult("fp");
             fp=evt.target;
             evt.target.regX=evt.target.image.width/2;
@@ -205,19 +245,25 @@ function onMousedown(evt){
         }
         break;  
     case 14:
+    //when you click the 'next step' button
         if(bg.image==queue.getResult("fl0")){
+        //when you click it for the 1st time
             bg.image=queue.getResult("fl1");
         }
         else if(bg.image==queue.getResult("fl1")){
+        //when you click it for the 2nd time    
             bg.image=queue.getResult("fl2");
         }
         else if(bg.image==queue.getResult("fl2")){
+        //when you click it for the 3rd time    
             bg.image=queue.getResult("fl3");
         }
         else if(bg.image==queue.getResult("fl3")){
+        //when you click it for the 4th time    
             bg.image=queue.getResult("fl4");
         }
         else{
+        //of course, when you click it for the 5th time
             stage.removeChild(bg);
             stage.removeChild(evt.target);
             setTimeout(handleComplete7,500);
@@ -227,18 +273,12 @@ function onMousedown(evt){
 
 
 function movepaper(){
+//set the speed for the final letter
     fp.x+=1.5;
-}
-    
-function debugLog(txt){
-    var log = new createjs.Text(txt, "20px Arial", "#ff7700");
-    log.x = 1;
-    log.y = 20;
-    log.textBaseline = "alphabetic";
-    stage.addChild(log);
 }
 
 function handleComplete5(){
+//scene of my drawer with codes
     bg = new createjs.Bitmap(queue.getResult("dr1"));
     bg.x = 1;
     bg.y = 1;
@@ -275,6 +315,7 @@ function handleComplete5(){
 }
 
 function handleComplete6(){
+//scene of the open drawer with candy box in it
     bg = new createjs.Bitmap(queue.getResult("dr2"));
     bg.x = 1;
     bg.y = 1;
@@ -295,6 +336,7 @@ function handleComplete6(){
 }
     
 function handleComplete2(){
+//second scene of my shelf
     bg = new createjs.Bitmap(queue.getResult("bg2"));
     bg.x = 1;
     bg.y = 1;
@@ -316,6 +358,7 @@ function handleComplete2(){
 
 
 function handleComplete3(){
+//third scene of my shelf
     bg = new createjs.Bitmap(queue.getResult("bg3"));
     bg.x = 1;
     bg.y = 1;
@@ -335,6 +378,7 @@ function handleComplete3(){
     }
 }
 function handleComplete4(){
+//fourth scene of my shelf
     bg = new createjs.Bitmap(queue.getResult("bg4"));
     bg.x = 1;
     bg.y = 1;
@@ -353,6 +397,7 @@ function handleComplete4(){
 }
 
 function handleComplete7(){
+//first scene of my shelf
     bg = new createjs.Bitmap(queue.getResult("bg1"));
     bg.x = 1;
     bg.y = 1;
@@ -374,6 +419,7 @@ function handleComplete7(){
 }
 
 function handleComplete(){
+//starting scene of my game with instructions
     $("#progress").hide();
     $("#StartButton").show();
     loadHandler();
@@ -397,15 +443,18 @@ createjs.Ticker.addEventListener("tick", tick);
 }
 
 function loadHandler(){
+//background music of my game
     var instance = createjs.Sound.play("sound");
     instance.on("complete",createjs.proxy(this.handleComplete,this));
     instance.volume=0.5;
 }
 function loadHandler2(){
+//an audio of me reading the final letter
     var instance = createjs.Sound.play("sound2");
     instance.volume=0.5;
 }
 function onProgress(event){
+//calculate progress
     var progress=Math.round(event.loaded*100);
     
     $progress=$("#progress");
@@ -413,6 +462,7 @@ function onProgress(event){
 }
 
 (function(){
+//initiate
     document.addEventListener('DOMContentLoaded', function() {
         // get a reference to the canvas we'll be working with:
         $("#StartButton").click(function(){
